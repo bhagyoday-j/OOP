@@ -8,15 +8,34 @@ class BankAccount {
 
 public:
 
-     int accountNumber;
+    int accountNumber;
     
     void createAccount() {
         cout << "\nEnter your name: ";
         cin >> name;
-        cout << "Enter account number: ";
-        cin >> accountNumber;
-        cout << "Enter initial balance: ";
-        cin >> balance;
+        while(true){
+            cout << "Enter account number : ";
+            cin >> accountNumber;
+            if(cin.fail()){
+                cout << "Invalid account Number !!"<<endl;
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }else{
+                break;
+            }
+        }
+        while(true){
+            cout << "Enter initial balance: ";
+            cin >> balance;
+            if(cin.fail()){
+                cout << "Invalid Amount !!"<<endl;
+                cin.clear();
+                cin.ignore(10000, '\n');
+            }else{
+                break;
+            }
+        }
+        
     }
 
     
@@ -64,7 +83,7 @@ int main() {
     int choice;
 
     do {
-        cout << "\n==== Simple Bank Menu ====\n";
+        cout << "\n==== Simple SBI Bank Menu ====\n";
         cout << "1. Create New Account\n";
         cout << "2. Credit Amount\n";
         cout << "3. Debit Amount\n";
