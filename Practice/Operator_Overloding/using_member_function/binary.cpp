@@ -10,7 +10,7 @@ public:
     n = y;
   }
 
-  display() {
+  void display() {
     cout <<"m = " << m << "   n = " << n <<endl;
   }
 

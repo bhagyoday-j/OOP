@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Marksheet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="card">
+  <div class="title">SANJIVANI COLLEGE OF ENGINEERING<br>Statement of Grades</div>
+  
+  <div class="info"><strong>Student Name:</strong> <span id="studentName"></span></div>
+  <div class="info"><strong>Mother's Name:</strong> <span id="motherName"></span></div>
+  <div class="info"><strong>PRN:</strong> <span id="prn"></span></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Subject</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+    <tbody id="marksTable"></tbody>
+  </table>
+
+  <div class="summary">
+    <div class="box">
+      <strong>Total Marks</strong>
+      <span id="total"></span>
+    </div>
+    <div class="box">
+      <strong>Percentage</strong>
+      <span id="percent"></span>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
