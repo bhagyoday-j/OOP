@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-class Student {
+class Student { //Base class
   protected :
     string name;
     string prn;
@@ -12,10 +12,11 @@ class Student {
     void acceptStudent();
 };
 
-class Marks : public Student {
+class Marks : public Student {  // Single Inheritance Student -> Marks
   protected :
     string sname[5];
     int smarks[5];
+    string Grade[5];
 
   public :
     void acceptMarks();
@@ -30,7 +31,7 @@ class Sport {
     void acceptSportMarks();
 };
 
-class Result : public Sport, public Marks {
+class Result : public Sport, public Marks { // Multiple Inheritance Sport, Marks -> Result
   protected :
     int totalMarks;
     float percentage;
@@ -63,6 +64,19 @@ void Marks :: acceptMarks() {
   cout << "Enter Subject names and marks :" << endl;
   for(int i = 0; i < 5; i++) {
     cin >> sname[i] >> smarks[i];
+    if(smarks[i] > 90) {
+      Grade[i] = "O";
+    } else if(smarks[i] > 80) {
+      Grade[i] = "A+";
+    } else if(smarks[i] > 70) {
+      Grade[i] = "A";
+    } else if(smarks[i] > 60) {
+      Grade[i] = "B+";
+    } else if(smarks[i] > 50) {
+      Grade[i] = "B";
+    } else {
+      Grade[i] = "F";
+    }
   }
 }
 
@@ -85,19 +99,20 @@ void Result :: calculateResult() {
 }
 
 void Display :: displayResult() {
-  cout << "\tSanjivani college of Enginering kopargaon\t" << endl;
+  cout << "\n\n\n\tSanjivani college of Enginering kopargaon\t" << endl;
+  cout << "\t\t  Statement of Grades\t\n" << endl;
   cout << "Student name : " << name << endl;
   cout << "Mother name : " << motherName << endl;
-  cout << "PRN :" << prn << endl;
-  cout << "Subjects\t" << "Marks" << endl;
+  cout << "PRN : " << prn << endl << endl;
+  cout << "Subjects\t" << "Marks\t" << "Grade" << endl;
   for(int i = 0; i < 5; i++) {
-    cout << sname[i] << "\t\t" << smarks[i] << endl;
+    cout << sname[i] << "\t\t" << smarks[
+      i] << "\t" << Grade[i] << endl;
   }
   cout << sportName << "\t\t" << sportMark << endl;
   cout << "\nTotal Marks : " << totalMarks;
-  cout << "\tPersentage : " << percentage;
+  cout << "\tPersentage : " << percentage <<" %"<< endl;
 }
-
 void Display :: saveToFile() {
   ofstream file("result.json");
   file << "{\n";
@@ -105,7 +120,7 @@ void Display :: saveToFile() {
   file << "  \"motherName\": \"" << motherName << "\",\n";
   file << "  \"prn\": \"" << prn << "\",\n";
 
-  // Subjects array
+  // Subjects
   file << "  \"subject\": [";
   for (int i = 0; i < 5; i++) {
             file << "\"" << sname[i] << "\"";
@@ -113,7 +128,7 @@ void Display :: saveToFile() {
   }
   file << ", \"" << sportName << "\"],\n";
 
-  // Marks array
+  // Marks
   file << "  \"marks\": [";
   for (int i = 0; i < 5; i++) {
             file << smarks[i];
