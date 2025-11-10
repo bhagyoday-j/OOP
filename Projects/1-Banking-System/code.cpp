@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 class BankAccount {
     int balance;
     string name;
@@ -83,7 +82,7 @@ int main() {
     int choice;
 
     do {
-        cout << "\n==== Simple SBI Bank Menu ====\n";
+        cout << "\n==== Simple Bank Menu ====\n";
         cout << "1. Create New Account\n";
         cout << "2. Credit Amount\n";
         cout << "3. Debit Amount\n";
