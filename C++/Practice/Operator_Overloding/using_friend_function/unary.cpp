@@ -27,6 +27,8 @@ int main() {
   in1.display();
   operator ++(in1); // 1st way
   in1.display();
+  ++in1; // 2nd way
+  in1.display();
 
   return 0;
 }
